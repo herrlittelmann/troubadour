@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="bin/css/style.css">
 		<link rel="stylesheet" href="bin/css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="bin/css/dragula.min.css">
-		<script src="bin/js/audio.js"></script>
 	</head>
 
 	<!--<body onload="setAudioPlayer()">-->
@@ -34,16 +33,22 @@
 				</div>
 			</div>
 
+			<div id="neuerplayer">
+			</div>
+
 			<div id="eigenschaften">
 
 			</div>
 
 		</div>
+
+		<script src="bin/js/audio.js"></script>
 		<script>
 			dragula([document.getElementById('player'), document.getElementById('player')],
 			{invalid: (el, handle) => el.classList.contains('donotdrag')}
 		);
 		</script>
+
 	</body>
 
 </html>

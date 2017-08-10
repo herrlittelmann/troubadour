@@ -1,28 +1,40 @@
-//bindet die dialog-API ein, die auf die Systemdialoge (speichern, laden, Meldung usw.) Zugriff hat
-const {dialog} = require('electron').remote;
-console.log(dialog);
 const dragula = require('dragula');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
+//Unser Alles-speichern-Objekt - bisher noch unbenutzt
+const state = {
+	moods: [],
+	highlighted: null
+};
 
+//abstrakte Klasse Mood, die von React erbt
+class Mood extends React.Component {
+	//Zeichnet folgendes
+	render() {
+		//Ein Div mit folgenden Eigenschaften
+		return React.createElement("div", {
+			className:"stimmung",
+			//Die Syntax muss so sein, weil ich eine Fkt übergebe und nicht ausführe!
+			onClick: this.focus,
+			//Mit this.props. ... greife ich auf die Eigenschaften des Objektes zu!
+			tabIndex: this.props.tabIndex,
+			//JS6-Schreibweise für function () {...}
+			//Durch das "=>" wird das "this" auf die Komponente Mood referenziert und nicht auf das Div
+			onFocus: () => showAttributes(this.props.id),
+			onBlur: () => hideAttributes()
+			//Inline-Parameter
+		},"Dies ist eine Stimmung!");
+	}
+}
 
-//AudioPlayer konfigurieren
-/*function setAudioPlayer() {
-	//Wenn das Dokument fertig geladen ist...
-	$(document).ready(function(){
-    	//Füge dem Button eine neue onClick-Funktion hinzu
-    	$('#play').click(function(){
-    		//Wechsel zwischen Pause und Play-Icon
-    		$(this).toggleClass("fa fa-pause fa-2x");
-    		$(this).toggleClass("fa fa-play fa-2x");
-    		//Audio-Funktionalität auf Button legen
-    		if($(this)[0].className == "fa fa-play fa-2x") {
-    			$('#m1')[0].pause();
-    		} else {
-    			$('#m1')[0].play();
-    		}
-    	});
-	});
-}*/
+//Hier rendert React unsere Klasse mit dem Parameter "id" und "tabIndex" als json-objekt-eigenschaft
+//Zugriff später über this.props.xyz
+//Funktion bekommt als Parameter das Objekt und den Einstiegspunkt im DOM
+ReactDOM.render(
+  React.createElement(Mood, {id:"waldipups",tabIndex:1}),
+  document.getElementById('neuerplayer')
+);
 
 //Eine neue Stimmung erstellen
 function newMood() {
@@ -74,12 +86,12 @@ function cancelMood(inp) {
 }
 
 //Wenn eine Stimmung den Fokus bekommt
-function showAttributes(m) {
-	document.getElementById("eigenschaften").innerHTML = ("<h1>" + m.id + "</h1>");
+function showAttributes(id) {
+	document.getElementById("eigenschaften").innerHTML = ("<h1>" + id + "</h1>");
 }
 
 //Wenn eine Stimmmung den Fokus verliert
-function hideAttributes(m) {
+function hideAttributes() {
 	document.getElementById("eigenschaften").innerHTML = ("");
 }
 
