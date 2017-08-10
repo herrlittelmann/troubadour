@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Troubadour</title>
+		<link rel="stylesheet" href="bin/css/style.css">
+		<link rel="stylesheet" href="bin/css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="bin/css/dragula.min.css">
+		<script src="bin/js/audio.js"></script>
+	</head>
+
+	<!--<body onload="setAudioPlayer()">-->
+	<body>
+
+		<!--Meldungen
+		<div id="blackhole">
+			<div class="meldung" id="name">
+				<p>Wie soll die Stimmung heißen?</p>
+				<input type="text"></input>
+			</div>
+		</div>-->
+
+		<!--Content-->
+		<div id="container">
+
+			<header>
+				<img src="bin/img/title.png" alt="Troubadour"></img>
+			</header>
+
+			<div id="player">
+				<div class="stimmung donotdrag" id="neu" onclick="newMood();">
+					<i class="fa fa-plus" aria-hidden="true"></i>
+				</div>
+			</div>
+
+			<div id="eigenschaften">
+
+			</div>
+
+		</div>
+		<script>
+			dragula([document.getElementById('player'), document.getElementById('player')],
+			{invalid: (el, handle) => el.classList.contains('donotdrag')}
+		);
+		</script>
+	</body>
+
+</html>

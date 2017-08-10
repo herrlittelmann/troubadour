@@ -1,0 +1,48 @@
+{
+  "name": "troubadour",
+  "version": "0.0.1",
+  "license": "GPL",
+  "private": true,
+  "description": "Atmosphärenspieler für Pen&Paper-Rollenspiele",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Herr Littelmann",
+  "build": {
+    "appId": "com.example.app",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+  "dependencies": {
+    "dragula": "^3.7.2",
+    "fs": "0.0.1-security",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "remote": "^0.2.6"
+  },
+  "devDependencies": {
+    "electron": "^1.6.11",
+    "electron-builder": "^19.16.2"
+  }
+}
