@@ -6,8 +6,8 @@
   "description": "Atmosphärenspieler für Pen&Paper-Rollenspiele",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "build": "webpack-dev-server",
+    "start": "webpack && electron .",
+    "start-web": "webpack-dev-server",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
