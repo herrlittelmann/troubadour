@@ -29,3 +29,4 @@ To do f�r troubadour
 react branch:
 - hot reloading, da sonst nach jeder Änderung im Code alles neu per npm start geöffnet werden muss
 - alte Funktionalität wieder herstellen (hinzufügen Moods, Name eingeben, Darstellen in Eigenschafts Panel an der rechten Seite, vertauschen der Reihenfolge durch D&D)
+- alle klickbaren Elemente, welche kein Link sind, sollten <button> Elemente sein (new Mood z.B.)

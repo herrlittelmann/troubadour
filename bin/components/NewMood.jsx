@@ -10,7 +10,6 @@ export default class NewMood extends Component {
           console.log("clicked add button");
         }}
       >
-        NewMood
         <i className="fa fa-plus" aria-hidden="true" />
       </div>
     );
