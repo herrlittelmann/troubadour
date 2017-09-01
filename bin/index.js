@@ -1,4 +1,8 @@
 // Diese index.js Datei dient als Einstiegspunkt für webpack,
 // um die komplette Anwendung mit all ihren Abhängigkeiten laden zu können
+import React from "react";
+import { render } from "react-dom";
+import App from "./components/App.jsx";
 
-console.log('Gebündeltes JS. Jetzt können wir mit dem richtigen babel-js loader Modul React Komponenten mit JSX verwenden!!')
+// App ist die Wurzel Komponente. Von ihr aus werden alle anderen Komponenten als Kinder aufgerufen und gerendert
+render(<App />, document.getElementById("root"));

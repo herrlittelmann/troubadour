@@ -1,7 +1,0 @@
-./node_modules/.bin/electron .
-
-- startet das Projekt
-
-npm run dist
-
-- compiliert das Projekt
