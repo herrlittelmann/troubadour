@@ -1,25 +1,31 @@
-To do für troubadour
+To do fï¿½r troubadour
 
-- transition für neue Moods
+- transition fï¿½r neue Moods
 
 - Tutorial npm-Module: https://docs.npmjs.com/getting-started/installing-npm-packages-locally
 
 - Alles notwendig, was in der Hauptdatei steht?
 
-- Meldungen für Namen
+- Meldungen fï¿½r Namen
 
 - Dateioperationen und Speichern; JS-Objekte
 
-- Problem des Neuladens -> gilt das auch für kompilierte Programme?; Moodbildschirm
+- Problem des Neuladens -> gilt das auch fï¿½r kompilierte Programme?; Moodbildschirm
 
 - Unsichtbarkeit Moods
 
-- Menüs bearbeiten -> Ansicht, Speichern usw.
+- Menï¿½s bearbeiten -> Ansicht, Speichern usw.
 
 - Moods per JS verschieben -> https://www.npmjs.com/package/dragula
 
 - JS und der Doppelklick -> ondblclick()
 
-- farbliche Akzente (später mit BG abstimmen)
+- farbliche Akzente (spï¿½ter mit BG abstimmen)
 
 - Header mit Schatten unten / outer glow
+
+
+
+react branch:
+- hot reloading, da sonst nach jeder Ã„nderung im Code alles neu per npm start geÃ¶ffnet werden muss
+- alte FunktionalitÃ¤t wieder herstellen (hinzufÃ¼gen Moods, Name eingeben, Darstellen in Eigenschafts Panel an der rechten Seite, vertauschen der Reihenfolge durch D&D)
