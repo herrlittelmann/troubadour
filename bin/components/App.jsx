@@ -34,6 +34,30 @@ export default class App extends Component {
       selectedMood: index
     });
   }
+  createSound(fileName, fileTime) {
+    const name = fileName || `new file`;
+    const time = fileTime || "-";
+    return { name, time };
+  }
+  addSound(file, moodIndex) {
+    const { moods } = this.state;
+    const oldMood = moods[moodIndex];
+    const oldFiles = oldMood.files;
+    const newMood = {
+      ...oldMood,
+      files: [...oldFiles, file]
+    };
+    this.setState({
+      moods: this.replaceAtIndex(moods, newMood, moodIndex)
+    });
+  }
+
+  // Hilfsfunktion welche ein Object in einerm Array durch ein neues ersetzt, sie gibt dabei ein komplett neues Array zurück, um den state frei von Mutationen zu halten
+  replaceAtIndex(originalArray, newItem, itemIndex) {
+    return originalArray.map((oldItem, index) => {
+      return index === itemIndex ? newItem : oldItem;
+    });
+  }
 
   render() {
     // für jedes mood Objekt im state soll die Anwendung eine Komponente "Mood" rendern. Diese Komponente braucht dafür die Eigenschaften des jeweiligen Mood als Parameter
@@ -45,7 +69,6 @@ export default class App extends Component {
           key={index}
           {...mood}
           handler={() => {
-            console.log(index);
             this.showMoodDetails(index);
           }}
         />
@@ -54,12 +77,21 @@ export default class App extends Component {
 
     const getDetails = () => {
       const { selectedMood, moods } = this.state;
-      console.log("selected", selectedMood);
       if (selectedMood === undefined) return null;
-      console.log(moods);
+
       const mood = moods[selectedMood];
-      console.log(mood);
-      return <Details mood={mood} />;
+      return (
+        <Details
+          mood={mood}
+          moodIndex={selectedMood}
+          createSound={() => {
+            return this.createSound();
+          }}
+          addSound={(file, moodIndex) => {
+            return this.addSound(file, moodIndex);
+          }}
+        />
+      );
     };
 
     // rendere den bisherigen "Container", aber ersetze den Inhalt des "player" Elements, durch die Komponente "NewMood" und der zuvor zusammengebaute List an "Mood" Elementen
