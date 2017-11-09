@@ -35,6 +35,7 @@ export default class App extends Component {
     });
   }
   createSound(fileName, fileTime) {
+    console.log(fileName);
     const name = fileName || `new file`;
     const time = fileTime || "-";
     return { name, time };
@@ -84,8 +85,8 @@ export default class App extends Component {
         <Details
           mood={mood}
           moodIndex={selectedMood}
-          createSound={() => {
-            return this.createSound();
+          createSound={(name, time) => {
+            return this.createSound(name, time);
           }}
           addSound={(file, moodIndex) => {
             return this.addSound(file, moodIndex);

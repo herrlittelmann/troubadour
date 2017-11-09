@@ -18,9 +18,13 @@ export default class Details extends Component {
         <h2>{name}</h2>
         <span>{files.length}</span>
         <NewSoundFile
-          handler={() => {
-            const newSoundFile = createSound();
-            addSound(newSoundFile, moodIndex);
+          handleNewFiles={files => {
+            console.log(files);
+            files.forEach(fileName => {
+              console.log(fileName);
+              const newSoundFile = createSound(fileName);
+              addSound(newSoundFile, moodIndex);
+            });
           }}
         />
         <div className="filelist">{fileList}</div>
